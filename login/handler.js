@@ -1,6 +1,7 @@
 'use strict';
+require('dotenv').config()
 const mongoose=require('mongoose');
-const {login}=require('./controllers/login')
+const {login}=require('./controllers/user')
 
 module.exports.hello = async(event, context, callback) => {
 
@@ -23,7 +24,8 @@ module.exports.hello = async(event, context, callback) => {
     switch(mode){
         case "login":
             {   
-              console.log("create");
+              console.log("login");
+             response =await  login(event);
              
             }
         break;
